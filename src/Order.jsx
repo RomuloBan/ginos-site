@@ -16,6 +16,7 @@ export default function Order() {
 
   if (!loading) {
     selectedPizza = pizzaTypes.find(pizza => pizza.id === pizzaType);
+    price = intl.format(selectedPizza.sizes[pizzaSize]);
   }
 
   async function fetchPizzaTypes() {
@@ -95,7 +96,7 @@ export default function Order() {
             description={selectedPizza?.description}
             image={selectedPizza?.image}
           />
-          <p>$13.37</p>
+          <p>{price}</p>
         </div>
       </form>
     </div>
