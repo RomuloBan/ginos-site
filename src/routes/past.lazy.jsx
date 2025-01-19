@@ -47,7 +47,11 @@ function PastOrdersRoute() {
         <tbody>
           {data.map(order => (
             <tr key={order.order_id}>
-              <td>{order.order_id}</td>
+              <td>
+                <button onClick={() => setFocusedOrder(order.order_id)}>
+                  {order.order_id}
+                </button>
+              </td>
               <td>{order.date}</td>
               <td>{order.time}</td>
             </tr>
@@ -63,7 +67,7 @@ function PastOrdersRoute() {
         </button>
       </div>
       {
-        focusedOrder (
+        focusedOrder ? (
           <Modal>
             <h2>Order #{focusedOrder}</h2>
             {!isOrderLoading ? (
@@ -96,7 +100,7 @@ function PastOrdersRoute() {
             ) : <p>Loading ...</p>}
             <button onClick={() => setFocusedOrder()}>Close</button>
           </Modal>
-        ) : null
+         ) : null
       }
     </div>
   )

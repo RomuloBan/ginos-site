@@ -9,7 +9,7 @@ const Modal = ({ children }) => {
   }
 
   useEffect(() => {
-    const modalRoot = document.getElementById("modal-root");
+    const modalRoot = document.getElementById("modal");
     modalRoot.appendChild(el.current);
     return () => modalRoot.removeChild(el.current);
   }, []);
